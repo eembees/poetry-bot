@@ -1,3 +1,4 @@
+# coding=utf-8
 import argparse
 import json
 from dataclasses import dataclass
@@ -34,11 +35,12 @@ def parse(page_source) -> List:
     return books
 
 
-def main(args: Dict):
+def main(args: Dict) -> None:
     output_file = args["output"]
     url = args["url"]
+
     print("Starting - loading URL")
-    # create a new Firefox session
+    # create a new Safari session
     driver = webdriver.Safari()
     driver.implicitly_wait(30)
     driver.get(url)
